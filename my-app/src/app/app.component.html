@@ -30,13 +30,37 @@
   </svg>
       <span>{{ title }} sta girando!</span>
   </div>
+
+  <h2>Add Student</h2>
+  <label for="txtName"> Student Name:</label>
+  <input type="text" id="txtName" #txtName [(ngModel)]="studentName" > 
+  <div class="gender-selection">
+    <div>
+      <input id="male" type="radio"  value="M" name="gender" [(ngModel)]="studentGender">
+      <label for="male">Male</label>
+    </div>
+
+    <div>
+      <input id="female" type="radio"  value="F" name="gender" [(ngModel)]="studentGender">
+      <label for="female">Female</label>
+    </div>
+  </div>
+  <select class="hobbies-selection" [(ngModel)]="studentHobbie">
+    <option *ngFor='let hobbie of hobbies' [value]="hobbie" >
+        {{hobbie}}
+    </option>
+  </select>
+
+  
+  <button [disabled]="studentName.length==0" (click)="onAddStudent()"> Add student </button>
+
   <h2>THE STUDENTS!!</h2>
   <!--<div *ngFor="let item of studentList" >
     {{item.name}} - {{item.hobby}}
   </div> -->
   <!--<app-student *ngFor="let item of studentList" [student]="item"></app-student>-->
   <div class="student" *ngFor="let item of studentList; let i = index">
-    <span>{{i}} => </span>
+    <span>{{ i + 1 }} => </span>
     <app-student [student]="item"></app-student>
   </div>
 </div>

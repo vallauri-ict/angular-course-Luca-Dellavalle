@@ -16,6 +16,27 @@
        .student {
            margin: 8px 0;
        }
+
+       button{
+           background-color: #1976d2;
+           padding:20px;
+           margin:20px auto;
+           color:whitesmoke;
+           border-radius:4px;
+       }
+       button:disabled{
+           background-color: whitesmoke;
+           color:gray;
+       }
+
+       .gender-selection>div{
+         display:inline-block;
+         margin:10px auto;
+       }
+
+       .hobbies-selection{
+           width: 110px;
+       }
        
        p {
            margin: 0;
