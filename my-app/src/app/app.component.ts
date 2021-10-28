@@ -24,7 +24,7 @@ export class AppComponent{
     {name:'Sara Pignata',hobby:'paddle',gender:'F', isPro: false},
   ]
   
-  hobbies=['Karate','Paddle','Volley','Tennis','Soccer'];
+  hobbies=['Karate','Paddle','Volley','Tennis','Soccer','Basket'];
   studentList: any[] = [];
   studentName:string = "";
   studentGender:string ="F";
@@ -47,4 +47,8 @@ export class AppComponent{
     this.studentHobbie = "";
     this.txtName.nativeElement.focus();
   };
+
+  onDeleteStudent(index:number){
+    this.studentList.splice(index,1);
+  }
 }
