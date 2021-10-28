@@ -17,34 +17,16 @@
            margin: 8px 0;
        }
 
-       button{
-           background-color: #1976d2;
-           padding:20px;
-           margin:20px auto;
-           color:whitesmoke;
-           border-radius:4px;
-       }
-       button:disabled{
-           background-color: whitesmoke;
-           color:gray;
-       }
+      
 
        .gender-selection>div{
-         display:inline-block;
-         margin:10px auto;
-       }
+        display:inline-block;
+        margin:10px auto;
+      }
 
-       .hobbies-selection{
-           width: 110px;
-       }
-
-       button.delete{
-        background-color: coral;
-        margin-left: 16px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-       }
-
+      .hobbies-selection{
+          width: 110px;
+      }
        p {
            margin: 0;
        }

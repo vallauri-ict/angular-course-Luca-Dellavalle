@@ -33,22 +33,31 @@ export class AppComponent{
   constructor(){
     for (let index = 0; index < 4; index++) {
       let num = Math.floor(Math.random() *  this.studentRepository.length);
-      let tempStudent = this.studentRepository[num];
+      let tempStudent:any = this.studentRepository[num];
       this.studentList.push(tempStudent);
       this.studentRepository.splice(num,1);
     }
   }
 
   onAddStudent(){
-    let newStudent={name:this.studentName, hobby:this.studentHobbie, gender:this.studentGender, isPro: false};
+    let newStudent={
+      name:this.studentName,
+      hobby:this.studentHobbie,
+      gender:this.studentGender,
+      isPro: false
+    };
     this.studentList.push(newStudent);
     this.studentName = "";
-    this.studentGender = "";
-    this.studentHobbie = "";
     this.txtName.nativeElement.focus();
   };
 
   onDeleteStudent(index:number){
+    this.studentList.splice(index,1);
+  }
+
+  onStudentDeleteEvent(student: any){
+    //alert("da cancellare " + student.name);
+    let index: number = this.studentList.indexOf(student);
     this.studentList.splice(index,1);
   }
 }
