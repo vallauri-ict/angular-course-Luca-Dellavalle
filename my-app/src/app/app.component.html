@@ -48,7 +48,7 @@
   <select class="hobbies-selection" [(ngModel)]="studentHobbie">
     <option *ngFor='let hobbie of hobbies' [value]="hobbie" >
         {{hobbie}}
-    </option>
+    </option>  
   </select>
 
   
@@ -60,7 +60,6 @@
   </div> -->
   <!--<app-student *ngFor="let item of studentList" [student]="item"></app-student>-->
   <div class="student" *ngFor="let item of studentList; let i = index">
-    <span>{{ i + 1 }} => </span>
     <app-student [student]="item" (studentDeleteEvent)="onStudentDeleteEvent($event)"></app-student>
     <!--<button class="delete" (click)="onDeleteStudent(i)">Delete</button> -->
   </div>

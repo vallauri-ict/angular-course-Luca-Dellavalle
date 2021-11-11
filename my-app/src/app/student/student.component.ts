@@ -8,9 +8,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class StudentComponent implements OnInit {
   @Input() student:any ;
   @Output() studenteDeleteEvent = new EventEmitter<any>();
-  
   constructor() { 
-    
   }
 
   private randomStudent(){
@@ -19,7 +17,7 @@ export class StudentComponent implements OnInit {
       this.student.isPro = true;
     }
   }
-
+  //formload
   ngOnInit(): void {
     this.randomStudent();
   }
@@ -30,7 +28,6 @@ export class StudentComponent implements OnInit {
 
   onDeleteStudent(index:number){
     this.studenteDeleteEvent.emit(this.student);
-    
   }
 
 }
