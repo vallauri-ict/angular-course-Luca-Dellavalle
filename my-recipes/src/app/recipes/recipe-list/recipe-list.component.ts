@@ -1,7 +1,5 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RecipeService } from 'src/app/shared/recipe.service';
-
-//import { RecipesService } from 'src/app/shared/recipes.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -9,8 +7,8 @@ import { RecipeService } from 'src/app/shared/recipe.service';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  
-  constructor(public recipeService:RecipeService) {}
+
+  constructor(public recipeService:RecipeService) { }
 
   ngOnInit(): void {
     this.recipeService.getRecipes();
