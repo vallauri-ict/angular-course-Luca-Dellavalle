@@ -69,6 +69,36 @@
       "name": "Sale",
       "amount": 500,
       "id": 7
+    },
+    {
+      "name": "Sale",
+      "amount": 100,
+      "id": 8
+    },
+    {
+      "name": "Acqua",
+      "amount": 100,
+      "id": 9
+    },
+    {
+      "name": "Farina",
+      "amount": 100,
+      "id": 10
+    },
+    {
+      "name": "Farina",
+      "amount": 100,
+      "id": 11
+    },
+    {
+      "name": "Acqua",
+      "amount": 100,
+      "id": 12
+    },
+    {
+      "name": "Sale",
+      "amount": 100,
+      "id": 13
     }
   ]
 }
