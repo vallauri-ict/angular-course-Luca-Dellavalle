@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +10,12 @@ export class HeaderComponent implements OnInit {
 
   collapsed: boolean = true;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void { }
 
-
+  show(page: string) {
+    this.router.navigateByUrl(page);
+  }
 
 }
