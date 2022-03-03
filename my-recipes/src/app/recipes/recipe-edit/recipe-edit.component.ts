@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Route } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IngredientModel } from 'src/app/models/ingredient.model';
 import { RecipeModel } from 'src/app/models/recipe.model';
 import { RecipeService } from 'src/app/shared/recipe.service';
@@ -10,8 +10,9 @@ import { RecipeService } from 'src/app/shared/recipe.service';
   styleUrls: ['./recipe-edit.component.css']
 })
 export class RecipeEditComponent implements OnInit {
+  router: any;
 
-  constructor(public recipeService: RecipeService, private activatedRoute: ActivatedRoute, private route:Route) { }
+  constructor(public recipeService: RecipeService, private activatedRoute: ActivatedRoute, private route:Router) { }
 
   recipeName: string="";
   recipeDescription: string="";
@@ -29,6 +30,7 @@ export class RecipeEditComponent implements OnInit {
           if(this.recipeService.selectedRecipe){
             this.recipeName = this.recipeService.selectedRecipe.name;
             this.recipeDescription = this.recipeService.selectedRecipe.description;
+            this.recipeImagePath = "";
             this.recipeIngredients = "";
             for (let ingredient of this.recipeService.selectedRecipe.ingredients) {
               this.recipeIngredients += ingredient.name + " : " + ingredient.amount + "\n";
@@ -53,14 +55,16 @@ export class RecipeEditComponent implements OnInit {
   onSave(){
     let ingredients = this.manageIngredients(this.recipeIngredients);
     let recipe:RecipeModel = new RecipeModel(this.recipeName, this.recipeDescription, this.recipeImagePath, ingredients)
+    if(this.recipeImagePath.indexOf('fakepath') == -1){
+      recipe.imagePath = this.base64Image;
+    }
     if (this.editMode = "add") {
-      //
+      this.recipeService.postRecipe(recipe);
     }
     else{
-      //this.recipeService.postRecipe(this.recipeService.selectedRecipe.id, recipe)
+      this.recipeService.patchRecipe(this.recipeService.selectedRecipe.id, recipe)
     }
-    alert("Recipe load")
-    this.route.navigate(['/recipes']);
+    this.router.navigate(['/recipes']);
   }
 
   manageIngredients(ingredients:string){
@@ -72,6 +76,18 @@ export class RecipeEditComponent implements OnInit {
       retVal.push(ingredient);
     }
     return retVal;
+  }
+
+  base64Image: any = "";
+  onSelectFile(event: any ){
+    if(event.target.files && event.target.files[0]){
+      let filePath = event.target.files[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(filePath);
+      reader.onload = () => {
+        this.base64Image = reader.result?.toString();
+      }
+    }
   }
 
 }
