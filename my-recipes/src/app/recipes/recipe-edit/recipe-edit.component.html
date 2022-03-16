@@ -6,24 +6,21 @@
             <input type="text" class="form-control" id="name" [(ngModel)]="recipeName">
         </div>
         <div class="form-group">
-            <label for="description" >Description</label>
-            <textarea name="description" id="description"
-                 rows="5" type="text" class="form-control"
-                 [(ngModel)]="recipeDescription"></textarea>
+            <label for="description">Description:</label>
+            <textarea name="description" id="description" rows="5" class="form-control"
+                [(ngModel)]="recipeDescription"></textarea>
         </div>
         <div class="form-group">
-            <label for="imagePath">Image: </label>
-            <input id="imagePath" type="file" class="form-control"
-            [(ngModel)]="recipeImagePath" (change)="onSelectFile($event)" >
+            <label for="imagePath">Image:</label>
+            <input type="file" class="form-control" id="imagePath" [(ngModel)]="recipeImagePath" (change)="onSelectFile($event)">
         </div>
         <div class="form-group">
-            <label for="ingredients"></label>
-            <textarea placeholder="ingredientName : qta" name="ingredients" 
-            id="ingredients" rows="5" class="form-control" [(ngModel)]="recipeIngredients"></textarea>
+            <label for="ingredients">Ingredients:</label>
+            <textarea name="ingredients" id="ingredients" rows="5" placeholder="ingredientName : qta"
+                class="form-control" [(ngModel)]="recipeIngredients"></textarea>
         </div>
-        <div class="form-group" style="margin-top:20px !important;">
-            <input (click)="onSave()" [(ngModel)]="buttonText" type="button" class="btn btn-success btn-block" id="save">
-
+        <div class="form-group" style="margin-top: 20px !important;">
+            <input type="button" class="btn btn-success btn-block" [(ngModel)]="buttonText" (click)="onSave()">
         </div>
     </div>
     <div class="col-sm-2"></div>
