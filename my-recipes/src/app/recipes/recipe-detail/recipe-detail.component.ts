@@ -3,13 +3,15 @@ import { RecipeService } from 'src/app/shared/recipe.service';
 import { ShoppingListService } from 'src/app/shared/shopping-list.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgxBootstrapConfirmService } from 'ngx-bootstrap-confirm';
 
+/*
 @Component({
   selector: 'ngbd-modal-confirm',
   template: `
   <div class="modal-header">
     <h4 class="modal-title" id="modal-title">Profile deletion</h4>
-    <button type="button" class="btn-close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')"></button>
+    <button type="button" class="btn-close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">Close</button>
   </div>
   <div class="modal-body">
     <p><strong>Are you sure you want to delete the recipe?</strong></p>
@@ -24,9 +26,12 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   `
 })
 
+
 export class NgbdModalConfirm {
   constructor(public modal: NgbActiveModal) {}
 }
+
+*/
 
 @Component({
   selector: 'app-recipe-detail',
@@ -71,8 +76,9 @@ export class RecipeDetailComponent implements OnInit {
    /* if(confirm("Are you sure to delete the recipe :"+ this.recipeService.selectedRecipe.name)) {
       this.recipeService.deleteRecipe(this.recipeService.selectedRecipe.id);
     }*/
-    console.log("cancellazione")
-    this._modalService.open(NgbdModalConfirm);
+    
+    //this._modalService.open(NgbdModalConfirm)
+
   }
 
 }

@@ -16,7 +16,7 @@
         },
         {
           "name": "Sale",
-          "amount": 10
+          "amount": 20
         }
       ]
     },
@@ -40,6 +40,18 @@
       "description": "Classico dolce italiano con panna e mascarpone ...",
       "imagePath": "https://toscanedigusto.com/wp-content/uploads/2019/09/maxresdefault.jpg",
       "ingredients": []
+    },
+    {
+      "name": "test",
+      "description": "test",
+      "imagePath": "",
+      "ingredients": [
+        {
+          "name": "test",
+          "amount": null
+        }
+      ],
+      "id": 5
     }
   ],
   "shopping-list": [
